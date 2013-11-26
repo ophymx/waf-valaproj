@@ -45,12 +45,14 @@ class Project:
                 args = '--cflags --libs'
             )
 
-        conf.check_cfg(
-            package = 'gee-1.0',
-            uselib_store = 'gee-1.0',
-            atleast_version = '0.6.0',
-            args = '--cflags --libs'
-        )
+        for lib in self.config.libs():
+            conf.check_cfg(
+                package = lib.name_version,
+                uselib_store = lib.name_version,
+                atleast_version = lib.min_version,
+                args = '--cflags --libs'
+            )
+
 
     def load_build(self, bld):
         for lib in self.__builds_for('src/lib'):
