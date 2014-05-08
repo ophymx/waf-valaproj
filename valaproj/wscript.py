@@ -5,7 +5,7 @@ from waflib import Errors
 from build import BuildConfig
 from config import ProjectConfig
 
-PKG_DIR = 'valaproj'
+PKG_DIR = '.valaproj'
 
 def _listdirs(dir):
     try:
